@@ -1,0 +1,102 @@
+\section{Funkcje tworzące}
+
+\subsection{Definicja}
+
+\begin{definition}
+    \textbf{Funkcją tworzącą} ciągu \((a_n)_{n \in \natural}\) nazywamy funkcję postaci:
+    \begin{equation*}
+        A(x) = \sum_{n=0}^{\infty} a_n x^n
+    \end{equation*}
+\end{definition}
+
+\subsection{Rozwinięcie w szereg \(\frac{1}{(1-ax^k)^m}\)}
+
+Bazowa funkcja tworząca ciągu \((1)_{n \in \natural}\) to \(\frac{1}{1-x}\). Dowód jest trywialny:
+
+\begin{proof}
+    Niech ciag \((a_n)_{n \in \natural}\) będzie ciągiem jedynkowym. Wtedy funkcja tworząca tego ciągu to:
+
+    $$ A(x) = \sum_{n=0}^{\infty} x^n $$
+    $$ A(x) x = \sum_{n=0}^{\infty} x^{n+1} $$
+    $$ A(x) x = \sum_{n=1}^{\infty} x^n $$
+    $$ A(x) - A(x) x = 1 $$
+    $$ A(x) (1 - x) = 1 $$
+    $$ A(x) = \dfrac{1}{1-x} $$
+\end{proof}
+
+Niech $G(x) = \dfrac{1}{(1-ax^k)^m}$ oraz $F(x) = \dfrac{1}{(1-ax)^m}$. Wtedy prosto wynika z powyższego, że $G(x) = F(x^k)$, więc możemy rozważac tylko $F(x)$.
+
+\begin{lemma}
+    Funkcja tworząca ciągu \((\binom{n+m-1}{m-1} a^n )_{n \in \natural}\) to \(\frac{1}{(1-ax)^m}\) dla \( m \in \natural_1, a \in \mathbb{C} \setminus \{0\} \).
+\end{lemma}
+
+\begin{proof}
+    Udowodnimy twierdzenie indukcyjnie. Dla $m = 1$ mamy:
+
+    $$ \sum_{n=0}^{\infty} \binom{n+1-1}{1-1} a^n x^n = \sum_{n=0}^{\infty} a^n x^n = \dfrac{1}{1-ax} $$
+
+    Załóżmy, że twierdzenie zachodzi dla $m$. Wtedy udowodnimy dla $m+1$:
+
+    \begin{multiline}
+        $$ \frac{1}{(1-ax)^{m+1}} = \frac{1}{(1-ax)^m} \cdot \frac{1}{(1-ax)} = \left( \sum_{n=0}^{\infty} \binom{n+m-1}{m-1} a^n x^n \right) \cdot \frac{1}{1-ax} = $$
+        $$ \sum_{n=0}^{\infty} \binom{n+m-1}{m-1} a^n x^n \cdot \sum_{n=0}^{\infty} a^n x^n = \sum_{n=0}^{\infty} \left(\sum_{k=0}^{n} \binom{k+m-1}{m-1} a^k a^{n-k}\right) x^n = $$
+        $$ = \sum_{n=0}^{\infty} a^{n} x^n \left( \sum_{k=0}^{n} \binom{k+m-1}{m-1} \right) = \sum_{n=0}^{\infty} a^{n} x^n \binom{n+m}{m} $$
+    \end{multiline}
+\end{proof}
+
+Jeszce nie jest oczywistym przedostatni krok w powyższym dowodzie.
+
+\begin{lemma}
+    \( \displaystyle \sum_{k=0}^{n} \binom{k+m-1}{m-1} = \binom{n+m}{m} \) dla \( n, m \in \natural \).
+\end{lemma}
+
+\begin{proof}
+    Udowodnimy to twierdzenie indukcyjnie. Dla \( n = 0 \) mamy:
+
+    $$ \sum_{k=0}^{0} \binom{k+m-1}{m-1} = \binom{m-1}{m-1} = 1 = \binom{m}{m} $$
+
+    Załóżmy, że twierdzenie zachodzi dla \( n \). Wtedy udowodnimy dla \( n+1 \):
+
+    \begin{multiline}
+        $$ \sum_{k=0}^{n+1} \binom{k+m-1}{m-1} = \sum_{k=0}^{n} \binom{k+m-1}{m-1} + \binom{n+m}{m-1} = \binom{n+m}{m} + \binom{n+m}{m-1} = \binom{n+m+1}{m} $$
+    \end{multiline}
+\end{proof}
+
+
+\subsection{Operacje na funkcjach tworzących}
+
+Niech \(A(x)\) będzie funkcją tworzącą ciągu \((a_n) n \in \natural\).
+Wyprowadzić funkcję tworzące ciągów: \((0, \ldots , 0, a_0, a_1, \ldots)\), \((a_k, a_k+1, \ldots)\), \((\sum_{n=0}^k a_n)k \in \natural\).
+
+Żeby wyprowadzić funkcję tworzącą ciągu \((0, \ldots , 0, a_0, a_1, \ldots)\) trzeba przemnożyć \(A(x)\) przez \(x^k\), gdzie \(k\) to liczba zer na początku ciągu.
+
+Żeby wyprowadzić funkcję tworzącą ciągu \((a_k, a_k+1, \ldots)\) trzeba zrobić \( B(x) = \frac{A(x) - a_0 - a_1 x - \ldots - a_{k-1} x^{k-1}}{x^k} \).
+
+Żeby wyprowadzić funkcję tworzącą ciągu \((\sum_{n=0}^k a_n)k \in \natural\) trzeba przemnożyć \(A(x)\) przez \(\frac{1}{1-x}\).
+
+\begin{proof}
+    Niech \(A(x)\) będzie funkcją tworzącą ciągu \((a_n) n \in \natural\). Wtedy funkcja tworząca ciągu \(S(x) = \sum_{n=0}^k a_n \) to $S(x) = \frac{A(x)}{1-x}$:
+
+    $$ S(x) = \frac{A(x)}{1-x} = A(x) \cdot \frac{1}{1-x} = A(x) \cdot \left(\sum_{n=0}^{\infty} x^n\right) = \sum_{n=0}^{\infty} \left(\sum_{k=0}^{n} a_k \cdot 1 \right) x^n = $$
+    $$ = \sum_{n=0}^{\infty} \left(\sum_{k=0}^{n} a_k \right) x^n $$
+
+\end{proof}
+   
+\subsection{Uogólnione współczynniki dwumianowe}
+
+\begin{definition}
+    \textbf{Uogólnionym współczynnikiem dwumianowym} nazywamy liczbę postaci:
+    \begin{equation*}
+        \binom{a}{n} = \frac{a(a-1)(a-2) \ldots (a-n+1)}{n!}
+    \end{equation*}
+\end{definition}
+
+\subsection{Funkcja tworząca ciągu Fibonacciego}
+
+% add refference to already existing section "Ciąg Fibbonaciego"
+
+Już było w sekcji \ref{sec:gen:fibonacci}.
+
+\subsection{Wzór zwarty na liczby Fibonacciego}
+
+Już było w sekcji \ref{sec:gen:fibonacci} (Może być to będzie rospisane lepiej pózniej).
