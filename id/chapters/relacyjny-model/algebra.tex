@@ -1,0 +1,47 @@
+\textbf{Algebra relacyjna} to zbiór relacji wraz z określonymi na nich operatorami.
+Każdy z operatorów działa na jednej lub wielu relacjach i zwraca nową relację.
+
+Podstawowe operatory (wprowadzone oryginalnie przez Codda w 1970) to:
+\begin{itemize}
+    \item \textbf{Selekcja} (\( \sigma \)) -- wybiera wiersze, które spełniają warunek.
+    \item \textbf{Projekcja} (\( \pi \))-- wybiera kolumny, które są wymagane.
+    \item \textbf{Suma} (\( \cup \)) -- łączy dwie relacje.
+    \item \textbf{Przecięcie} (\( \cap \)) -- zwraca wspólne wiersze dwóch relacji.
+    \item \textbf{Różnica} (\( - \)) -- zwraca różnicę dwóch relacji.
+    \item \textbf{Iloczyn kartezjański} (\( \times \)) -- zwraca iloczyn kartezjański dwóch relacji.
+    \item \textbf{Złączenie} (\( \bowtie \)) -- zwraca iloczyn kartezjański dwóch relacji, a następnie usuwa duplikaty.
+\end{itemize}
+
+Operatory można składać ze sobą, tworząc w ten sposób bardziej skomplikowane działania.
+
+\subsection*{Operatory}
+
+\subsubsection*{Selekcja}
+
+Operator \textbf{selekcji} (\( \sigma \)) wybiera wiersze, które spełniają zadany predykat.
+
+\[
+    \sigma_{\text{predykat}}(R)
+\]
+
+Jako predykat dopuszczalne są operatory porównania (np. \( =, \neq, <, >, \leq, \geq \)), operatory logiczne (np. \( \land, \lor, \lnot \)) oraz operatory zbiórów (np. \( \in, \notin \)) ze stałymi lub z wartoścami innych atrybutow.
+
+Predykaty mogą być złożone, tj. być koniunkcjami, alternatywami lub zaprzeczeniami innych predykatów.
+
+\subsubsection*{Projekcja}
+
+Operator \textbf{projekcji} (\( \pi \)) wybiera z danej relacji określony zbior atrybutow.
+
+\[
+    \pi_{\text{atrybuty}}(R)
+\]
+
+Kolejność atrybutów może być dowolna.
+
+Wybierane atrybuty można obkładać dodatkowymi funkcjami.
+
+\subsubsection*{Operatory teoriomnogościowe}
+
+\subsubsection*{Suma}
+
+Operator \textbf{sumy} (\( \cup \)) łączy dwie relacje, zwracając relację, która zawiera wszystkie wiersze z obu relacji.

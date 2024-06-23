@@ -1,0 +1,73 @@
+
+\begin{definition}
+    \textbf{Relacyjny model danych} -- model danych, który opisuje dane za pomocą relacji, które są zbiorami krotek (rekordów) o ustalonej liczbie atrybutów (kolumn). Relacje są zbiorami krotek, które nie mają ustalonej kolejności. Każda krotka składa się z wartości atrybutów, które są zdefiniowane w schemacie relacji.
+\end{definition}
+
+\begin{definition}
+    \textbf{Atrybut} -- naglowek kolumny w relacji.
+\end{definition}
+
+\begin{definition}
+    \textbf{Krotka} -- wiersz w relacji.
+\end{definition}
+
+\begin{definition}
+    \textbf{Dziedzina atrybuty} (\( \operatorname{dom}( A\))) -- zbiór wartości, które mogą być przypisane do atrybutu \(A\).
+\end{definition}
+
+\begin{definition}
+    \textbf{Schemat relacji} -- zbiór atrybutów, które są zdefiniowane w relacji.
+\end{definition}
+
+\begin{definition}
+    \textbf{Instancja relacji} -- stan relacji w danym momencie.
+\end{definition}
+
+\begin{definition}
+    \textbf{Atomowość} -- zasada, która mówi, że wszystki wartośći atrybutów w relacji są atomowe, tzn. nie można ich podzielić na mniejsze części.
+\end{definition}
+
+\begin{definition}
+    \textbf{Superklucz} -- zbiór atrybutów, który jednoznacznie identyfikuje wszystkie krotkę w relacji.
+\end{definition}
+
+\textbf{Superklucz} relacji \(R(A_1, A_2, \ldots, A_n)\) to taki zbiór atrybutów \(\{B_1, B_2, \ldots, B_k \} \subseteq \{ A_1, A_2, \ldots, A_n \} \), że dla każdej pary krotek \(t_1, t_2 \in R\) zachodzi 
+\(t_1[B_1, B_2, \ldots, B_k] = t_2[B_1, B_2, \ldots, B_k] \Rightarrow t_1 = t_2 \).
+
+\begin{definition}
+    \textbf{Klucz} -- minimalny superklucz w sensie inkluzji.
+\end{definition}
+
+\begin{definition}
+    \textbf{Klucz podstawowy} -- klucz, który jest wybrany jako klucz główny.
+\end{definition}
+
+\begin{definition}
+    \textbf{Klucz wtórne} (lub \textbf{kandydująnce}) -- klucz, który nie jest kluczem podstawowym.
+\end{definition}
+
+\begin{definition}
+    \textbf{Klucz obcy} -- zbior atrybutów, który jest kluczem w innej relacji.
+\end{definition}
+
+Zbior atrybutow \( \{B_1, B_2, \ldots, B_k \} \) relacji \(R\) jest kluczem obcym tej jezeli:
+\begin{itemize}
+    \item \( \exists \{A_1, A_2, \ldots, A_n \} \) klucz w pewnej relacji \(S\),
+    \item \( \forall_{i \in [k]}  \operatorname{dom}(B_i) = \operatorname{dom}(A_i) \) ,
+    \item \( \forall_{t \in R} \exists!_{t_2 \in S} \) takie, że \( t[B_1, B_2, \ldots, B_k] = t_2[A_1, A_2, \ldots, A_n] \) lub \( t[B_1, B_2, \ldots, B_k] = \text{NULL} \).
+\end{itemize}
+
+
+\begin{definition}
+    \textbf{Ogranizenia integralnościowe} -- reguły, które muszą być spełnione przez dane w bazie danych.
+\end{definition}
+
+Przykładowymi ograniczeniami są:
+\begin{itemize}
+    \item klucz główny (\texttt{PRIMARY KEY}),
+    \item klucz obcy (\texttt{FOREIGN KEY}),
+    \item unikalność (\texttt{UNIQUE}),
+    \item zawężenie dziedziny (\texttt{CHECK}).
+    \item obowiązkowość (\texttt{NULL} / \texttt{NOT NULL}).
+\end{itemize}
+
